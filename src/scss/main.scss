@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+@import '~bulma-switch';
+@import '../../node_modules/bulma/bulma.sass';
+
+$red: #f92937;
+
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    background-color: #f8f8f8;
+}
+
+body, button, input, optgroup, select, textarea {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.select {
+    width: 100%;
+
+    select {
+        width: 100%;
+    }
+}
+
+.input, .textarea, .select select {
+    border-color: #6f6f6f;
+    border-radius: 2px;
+}
+
+.input:hover,
+.textarea:hover,
+.select select:hover,
+.is-hovered.input,
+.is-hovered.textarea,
+.select select.is-hovered
+{
+    border-color: #6f6f6f;
+}
+
+.is-primary {
+    background-color: #2879b8 !important;
+}
+
+.switch[type=checkbox] + label::before,
+.switch[type=checkbox] + label:before {
+    background: #646569 !important;
+}
+
+.switch[type=checkbox]:checked + label::before,
+.switch[type=checkbox]:checked + label:before {
+    background: #2879b8 !important;
+}
+
+.link {
+    color: $red;
+}
+
+.step {
+    @media screen and (min-width: 768px) {
+        span {
+            display: block;
+            width: 100%;
+        }
+    }
+    span {
+        vertical-align: middle;
+    }
+    .text {
+        font-size: 12px;
+        font-weight: 500;
+        color: #b7b7b7;
+    }
+    .icon {
+        position: relative;
+
+        @media screen and (min-width: 768px) {
+            margin-bottom: 5px;
+
+            &:before {
+                content: '';
+                display: block;
+                width: calc(100% - 32px);
+                height: 1px;
+                background-color: #b7b7b7;
+                position: absolute;
+                right: 0;
+                top: 50%;
+            }
+        }
+
+        svg {
+            path {
+                fill: #b7b7b7;
+            }
+        }
+    }
+
+    &.active, &.passed {
+        .text { color: #fb2638; }
+
+        svg {
+            path {
+                fill: #fb2638;
+            }
+        }
+        .icon {
+            @media screen and (min-width: 768px) {
+                &:after {
+                    content: '';
+                    display: block;
+                    width: calc(100% - 32px);
+                    height: 1px;
+                    background-color: #fb2638;
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                }
+            }
+        }
+    }
+
+    &.active {
+        .icon {
+            @media screen and (min-width: 768px) {
+                &:after {
+                    width: 32px;
+                    left: 32px;
+                }
+            }
+        }
+    }
+}
